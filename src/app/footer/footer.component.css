@@ -1,0 +1,28 @@
+footer {
+  background: lightcoral;
+  width: 100%;
+  padding: 1% 0;
+  font-size: 0.9rem;
+}
+
+p {
+  text-align: center;
+}
+
+.catchphrase {
+  font-weight: bold;
+}
+
+.key-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.key-info > div {
+  flex-basis: 33%;
+}
+
+.key-info > div > p:last-child {
+  font-size: 0.8rem;
+}

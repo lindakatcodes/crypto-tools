@@ -1,0 +1,13 @@
+header {
+  background: lightseagreen;
+  width: 100%;
+  padding: 1% 0;
+}
+
+.title, .subtitle {
+  text-align: center;
+}
+
+.title {
+  margin-top: 0.25em;
+}

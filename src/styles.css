@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  font-family: Barlow, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+body {
+  display: grid;
+  grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
