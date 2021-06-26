@@ -4,16 +4,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { CalculatorComponent } from './calculator/calculator.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { ConversionsComponent } from './pages/conversions/conversions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    ConversionsComponent
   ],
   imports: [
     BrowserModule,

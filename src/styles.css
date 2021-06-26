@@ -7,26 +7,11 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 p {
   margin: 0.5em 0;
-}
-
-body {
-  display: grid;
-  grid-template-areas: 
-    "header"
-    "main"
-    "footer";
-}
-
-header {
-  grid-area: header;
-}
-
-main {
-  grid-area: main;
-}
-
-footer {
-  grid-area: footer;
 }

@@ -18,6 +18,6 @@ export class CurrencyDbService {
         localStorage.setItem('currencyValues', JSON.stringify(values));
       })
     }
-    return dataIsSet;
+    return JSON.parse(dataIsSet!);
   }
 }

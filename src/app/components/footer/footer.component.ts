@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiDataService } from '../api-data.service';
+import { ApiDataService } from '../../services/api-data.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
