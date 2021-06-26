@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { KeyDataService } from '../key-data.service';
+import { ApiDataService } from '../api-data.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,15 +7,16 @@ import { KeyDataService } from '../key-data.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private keyService: KeyDataService) {}
+  constructor(private apiService: ApiDataService) {}
   
   data: any;
+  keyEndpoint: string = '/v1/key/info';
 
-  setKeyData(): void {
-    this.keyService.getKeyData().subscribe(res => this.data = {...res})
+  setApiData(): void {
+    this.apiService.getApiData(this.keyEndpoint).subscribe(res => this.data = {...res})
   }
 
   ngOnInit(): void {
-    this.setKeyData();
+    this.setApiData();
   }
 }

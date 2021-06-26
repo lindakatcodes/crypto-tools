@@ -6,7 +6,7 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class KeyDataService {
+export class ApiDataService {
 
   constructor(private http: HttpClient) { }
 
@@ -14,7 +14,7 @@ export class KeyDataService {
     headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*'})
   }
 
-  getKeyData(): Observable<any> {
-    return this.http.get('http://localhost:8888/.netlify/functions/getKeyData', this.httpOptions)
+  getApiData(endpoint: string): Observable<any> {
+    return this.http.get(`http://localhost:8888/.netlify/functions/getApiData?endpoint=${endpoint}`, this.httpOptions)
   }
 }

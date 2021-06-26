@@ -2,15 +2,15 @@
   <p class="catchphrase">Sell on the way up, not on the way down.</p>
   <div class="key-info">
     <div class="minute">
-      <p>{{ data.usage.current_minute.requests_made }} of {{ data.usage.current_minute.requests_left }} requests made</p>
+      <p>{{ data.usage.current_minute.requests_made }} of {{ data.plan.rate_limit_minute }} requests made</p>
       <p>Resets every minute</p>
     </div>
     <div class="daily">
-      <p>{{ data.usage.current_day.credits_used }} of {{ data.usage.current_day.credits_left }} requests made</p>
+      <p>{{ data.usage.current_day.credits_used }} of {{ data.plan.credit_limit_daily }} daily requests made</p>
       <p>Resets {{ data.plan.credit_limit_daily_reset }}</p>
     </div>
     <div class="monthly">
-      <p>{{ data.usage.current_month.credits_used | number }} of {{ data.usage.current_month.credits_left | number }} requests made</p>
+      <p>{{ data.usage.current_month.credits_used | number }} of {{ data.plan.credit_limit_monthly | number }} monthly requests made</p>
       <p>Resets {{ data.plan.credit_limit_monthly_reset }}</p>
     </div>
   </div>
