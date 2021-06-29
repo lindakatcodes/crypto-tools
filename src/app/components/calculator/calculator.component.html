@@ -1,5 +1,16 @@
-<ul>
-  <li>
-    {{coin.name}}
-  </li>
-</ul>
+<form [formGroup]="convertForm">
+
+  <label for="valueToConvert">Convert this amount</label>
+  <input id="valueToConvert" type="number" formControlName="value">
+
+  <label for="coinToConvert">of this currency</label>
+  <select id="coinToConvert" formControlName="coinOwned">
+    <option *ngFor="let coin of coins" [value]="coin">{{coin.name}} {{coin.symbol}}</option>
+  </select>
+
+  <label for="coinConvertedTo">to this currency</label>
+  <select id="coinConvertedTo" formControlName="convertedTo">
+    <option *ngFor="let coin of coins" [value]="coin">{{coin.name}} {{coin.symbol}}</option>
+  </select>
+
+</form>

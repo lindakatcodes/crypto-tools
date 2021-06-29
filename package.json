@@ -2,6 +2,7 @@
   "name": "crypto-tools",
   "version": "0.0.0",
   "scripts": {
+    "dev": "ntl dev",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

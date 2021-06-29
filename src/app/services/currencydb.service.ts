@@ -16,6 +16,7 @@ export class CurrencyDbService {
         const values: any = [];
         res.map((bit: any) => values.push(bit))
         localStorage.setItem('currencyValues', JSON.stringify(values));
+        return values;
       })
     }
     return JSON.parse(dataIsSet!);
