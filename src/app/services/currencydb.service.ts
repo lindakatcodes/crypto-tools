@@ -8,6 +8,7 @@ export class CurrencyDbService {
   constructor(private apiService: ApiDataService) {}
   
   currencyEndpoint: string = '/v1/cryptocurrency/map';
+  fiatEndpoint: string = '/v1/fiat/map';
 
   setCurrencyData() {
     const dataIsSet = localStorage.getItem('currencyValues');
@@ -16,6 +17,19 @@ export class CurrencyDbService {
         const values: any = [];
         res.map((bit: any) => values.push(bit))
         localStorage.setItem('currencyValues', JSON.stringify(values));
+        return values;
+      })
+    }
+    return JSON.parse(dataIsSet!);
+  }
+
+  setFiatData() {
+    const dataIsSet = localStorage.getItem('fiatValues');
+    if (!dataIsSet) {
+      this.apiService.getApiData(this.fiatEndpoint).subscribe(res => {
+        const values: any = [];
+        res.map((bit: any) => values.push(bit))
+        localStorage.setItem('fiatValues', JSON.stringify(values));
         return values;
       })
     }

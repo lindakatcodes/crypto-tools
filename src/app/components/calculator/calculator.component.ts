@@ -11,19 +11,33 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class CalculatorComponent implements OnInit {
   constructor(private coindb: CurrencyDbService) { }
 
-  coins!: any;
+  allCoins!: any;
+  allFiat!: any;
+  mainCurrencyArray: any = ['Bitcoin - BTC', 'Ethereum - ETH', 'Polkadot - DOT', 'Chainlink - LINK', 'Cardano - ADA', 'United States Dollar - USD', 'Dogecoin - DOGE'];
+  mainCurrencyFullObjects: any = [];
 
   populateCoins() {
     return this.coindb.setCurrencyData();
   }
 
+  populateFiat() {
+    return this.coindb.setFiatData();
+  }
+
   convertForm = new FormGroup({
-    value: new FormControl(1),
-    coinOwned: new FormControl('BTC'),
-    convertedTo: new FormControl('USD')
+    amountToConvert: new FormControl(1),
+    coinOwned: new FormControl('Bitcoin - BTC'),
+    convertedTo: new FormControl('United States Dollar - USD')
   });
 
   ngOnInit(): void {
-    this.coins = this.populateCoins();
+    this.allCoins = this.populateCoins();
+    this.allFiat = this.populateFiat();
+  }
+
+  ngAfterContentInit(): void {
+    const coinFilters = this.allCoins.filter((value: Coin<object>) => this.mainCurrencyArray.includes(value.symbol));
+    const fiatFilters = this.allFiat.filter((value: Coin<object>) => this.mainCurrencyArray.includes(value.symbol));
+    this.mainCurrencyFullObjects = [...coinFilters, ...fiatFilters];
   }
 }
