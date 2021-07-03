@@ -1,6 +1,6 @@
 <footer>
   <p class="catchphrase">Sell on the way up, not on the way down.</p>
-  <div class="key-info">
+  <div class="key-info" *ngIf="data">
     <div class="minute">
       <p>{{ data.usage.current_minute.requests_made }} of {{ data.plan.rate_limit_minute }} requests made</p>
       <p>Resets every minute</p>

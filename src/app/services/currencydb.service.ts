@@ -15,7 +15,11 @@ export class CurrencyDbService {
     if (!dataIsSet) {
       this.apiService.getApiData(this.currencyEndpoint).subscribe(res => {
         const values: any = [];
-        res.map((bit: any) => values.push(bit))
+        res.map((bit: any) => {
+          const combinedName = `${bit.name} - ${bit.symbol}`;
+          const fullBit = {...bit, nameSymbol: combinedName}
+          values.push(fullBit)
+        })
         localStorage.setItem('currencyValues', JSON.stringify(values));
         return values;
       })
@@ -28,7 +32,11 @@ export class CurrencyDbService {
     if (!dataIsSet) {
       this.apiService.getApiData(this.fiatEndpoint).subscribe(res => {
         const values: any = [];
-        res.map((bit: any) => values.push(bit))
+        res.map((bit: any) => {
+          const combinedName = `${bit.name} - ${bit.symbol}`;
+          const fullBit = {...bit, nameSymbol: combinedName}
+          values.push(fullBit)
+        })
         localStorage.setItem('fiatValues', JSON.stringify(values));
         return values;
       })

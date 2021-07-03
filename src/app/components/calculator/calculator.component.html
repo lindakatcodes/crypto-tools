@@ -1,17 +1,18 @@
-<form [formGroup]="convertForm">
+<form [formGroup]="convertForm" (ngSubmit)="onSubmit()">
 
   <label for="valueToConvert">Convert this amount</label>
   <input id="valueToConvert" type="number" formControlName="amountToConvert">
 
   <label for="coinToConvert">of this currency</label>
-  <select id="coinToConvert" formControlName="coinOwned">
+  <select id="coinToConvert" formControlName="convertFrom">
     <option *ngFor="let currency of mainCurrencyArray" [ngValue]="currency">{{currency}}</option>
   </select>
 
   <label for="coinConvertedTo">to this currency</label>
-  <select id="coinConvertedTo" formControlName="convertedTo">
+  <select id="coinConvertedTo" formControlName="convertTo">
     <option *ngFor="let currency of mainCurrencyArray" [ngValue]="currency">{{currency}}</option>
   </select>
-
+  <button type="submit">Convert</button>
 </form>
 <!-- conversion goes here -->
+<p *ngIf="conversionResult">{{conversionResult}}</p>

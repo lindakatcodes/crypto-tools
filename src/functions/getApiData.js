@@ -10,6 +10,7 @@ exports.handler = async function(event, context) {
   const apiBase = 'https://pro-api.coinmarketcap.com';
   const endpoint = querystring.endpoint;
   const fullUrl = `${apiBase}${endpoint}`;
+  console.log(fullUrl);
   
   const responseData = await fetch(fullUrl, {
     headers: headers,
